@@ -2,7 +2,7 @@
 
 **Studio recorder for the browser.** Record a tab, a window or the whole screen from the popup (`getDisplayMedia` + `MediaRecorder`), with a red **REC beacon** injected on every page while the tape rolls and a stopwatch in the popup. Each stop saves a **clip card** (real thumbnail, mime type, date, duration); the `.webm` downloads locally and the card metadata persists.
 
-Landing page: `https://screenloom-xxxx.vercel.app` (placeholder, replaced at deploy time)
+Landing page: `https://screenloom-nine.vercel.app`
 Extension ZIP: `screenloom.zip` (dist) — also downloadable from the landing.
 
 ---
