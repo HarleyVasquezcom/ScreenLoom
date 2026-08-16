@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ScreenLoom</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="sl-head">
+    <div class="studio-top">
+      <span class="studio-title" data-i18n="appTitle">ScreenLoom</span>
+      <span class="recbadge" id="recBadge" data-i18n="recOff">IDLE</span>
+    </div>
+    <p class="tagline" data-i18n="tagline">studio recorder for the browser</p>
+    <p class="chrome-note" data-i18n="recChrome">– capture runs inside the popup page –</p>
+    <button id="toggleBtn" type="button" data-i18n="toggle">[ start / stop recording ]</button>
+    <p class="timer" id="timerEl">00:00</p>
+    <p class="statusmsg" id="statusMsg" aria-live="polite" data-i18n="statusOff">idle</p>
+    <p class="hint" data-i18n="hint">click start, share a tab/window/screen, the tape rolls with a red REC on every page; stop saves a clip card</p>
+  </header>
+
+  <section class="sl-body">
+    <div class="clips-title-row">
+      <span data-i18n="clipsTitle">recorded clips</span>
+      <span id="clipCount">0</span>
+    </div>
+    <ul id="clipList" class="cliplist"></ul>
+    <p class="note" data-i18n="downloads">.webm available this session; card metadata stays</p>
+  </section>
+
+  <footer class="sl-foot">
+    <button id="clearBtn" type="button" data-i18n="clearBtn">[ clear clips ]</button>
+    <label for="langSel" class="visually-hidden">language</label>
+    <select id="langSel">
+      <option value="en">EN</option><option value="es">ES</option><option value="fr">FR</option>
+      <option value="pt">PT</option><option value="it">IT</option><option value="de">DE</option>
+    </select>
+    <a data-i18n="credit" href="https://www.linkedin.com/in/harleyvasquez/" target="_blank" rel="noreferrer">Built by Harley Vásquez</a>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

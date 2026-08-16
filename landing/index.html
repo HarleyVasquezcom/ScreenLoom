@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ScreenLoom — studio recorder for the browser</title>
+<style>
+  :root { --panel:#14161a; --panel-2:#1c1f24; --line:#33373d; --amber:#ffb31a; --red:#ff4949; --ink:#eceef1; --dim:#9aa0a8; }
+  * { box-sizing: border-box; }
+  body { margin:0; background: var(--panel); color: var(--ink); font-family: Consolas, 'Courier New', monospace; line-height:1.6; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+  header.top { border-bottom: 3px solid var(--amber); background: var(--panel-2); }
+  nav.wrap { display:flex; align-items:center; justify-content:space-between; padding:16px 20px; }
+  .brand { font-weight:800; letter-spacing:2px; text-transform:uppercase; font-size:18px; }
+  .brand i { color: var(--amber); font-style:normal; }
+  #langSel { border:1px solid var(--line); background: var(--panel); color: var(--ink); padding:4px 6px; border-radius:3px; font-family:inherit; }
+  .hero { text-align:center; padding: 58px 20px 48px; }
+  .recpulse { display:inline-block; width:14px; height:14px; border-radius:50%; background: var(--red); margin-bottom: 18px; animation: pulse 1.2s ease-in-out infinite; }
+  @keyframes pulse { 50% { opacity:.35; } }
+  .hero h1 { font-size:42px; margin:0 0 10px; text-transform:uppercase; letter-spacing:3px; }
+  .hero .sub { font-size:18px; color: var(--dim); margin:0 0 26px; }
+  .cta { display:inline-block; background: var(--amber); color:#14161a; text-decoration:none; padding:12px 26px; border-radius:6px; font-weight:800; font-family:inherit; box-shadow: 0 5px 0 #8f6a0f; letter-spacing:1px; text-transform:uppercase; }
+  .cta:hover { background:#ffc24d; }
+  .features { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:18px; padding: 40px 0; }
+  .feat { background: var(--panel-2); border:1px solid var(--line); border-top:4px solid var(--amber); border-radius:5px; padding:18px; }
+  .feat h3 { margin:0 0 6px; font-size:15px; text-transform:uppercase; letter-spacing:1px; color: var(--amber); }
+  .feat p { margin:0; font-size:13.5px; color: var(--dim); }
+  .install { background: var(--panel-2); border:2px dashed var(--amber); border-radius:8px; padding:26px; margin:24px 0 40px; }
+  .install h2 { margin-top:0; text-transform:uppercase; letter-spacing:1px; font-size:17px; color: var(--amber); }
+  .install ol { margin:0; padding-left:22px; }
+  .install li { margin-bottom:8px; }
+  .ziprow { background:#0f1114; border:1px solid var(--line); border-left:3px solid var(--amber); padding:20px 24px; margin-top:34px; border-radius:4px; }
+  .ziprow .zname { font-size:14px; color: var(--ink); }
+  .ziprow .zmeta { font-size:12px; color: var(--dim); margin-top:4px; }
+  footer { border-top:1px solid var(--line); padding:26px 0 34px; text-align:center; color: var(--dim); font-size:13px; }
+  footer a { color: inherit; text-decoration: none; }
+  footer .tiny { margin-top:8px; font-size:11px; opacity:.7; }
+  @media (max-width: 640px) { .hero { padding: 48px 0 36px; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <nav class="wrap">
+    <div class="brand">Screen<i>Loom</i></div>
+    <select id="langSel">
+      <option value="en">EN</option><option value="es">ES</option><option value="fr">FR</option>
+      <option value="pt">PT</option><option value="it">IT</option><option value="de">DE</option>
+    </select>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <span class="recpulse"></span>
+    <h1 data-i18n="heroTitle">ScreenLoom</h1>
+    <p class="sub" data-i18n="heroSub">A studio recorder that lives in your browser toolbar: record a tab, a window or the whole screen, with a red REC beacon on every page while the tape rolls, and a stopwatch in the popup. Stop saves a clip card with thumbnail, length and format.</p>
+    <a class="cta" data-i18n="cta" href="screenloom.zip" download>Download the extension (.zip)</a>
+  </section>
+
+  <section class="features">
+    <div class="feat"><h3 data-i18n="feat1T">REC beacon</h3><p data-i18n="feat1B">While recording, every page shows a small red REC pill — so you always know the tape is rolling, even in a different tab.</p></div>
+    <div class="feat"><h3 data-i18n="feat2T">Clip cards</h3><p data-i18n="feat2B">Each stop saves a card with a real thumbnail, mime type, date and length. The .webm downloads locally; the card metadata persists.</p></div>
+    <div class="feat"><h3 data-i18n="feat3T">Local studio</h3><p data-i18n="feat3B">Recording happens inside the popup page via getDisplayMedia + MediaRecorder. Nothing is uploaded anywhere.</p></div>
+  </section>
+
+  <section class="install">
+    <h2 data-i18n="installTitle">Install (load unpacked)</h2>
+    <ol>
+      <li data-i18n="inst1">Download <code>screenloom.zip</code> and unzip it.</li>
+      <li data-i18n="inst2">Open <code>chrome://extensions</code>, enable <em>Developer mode</em>.</li>
+      <li data-i18n="inst3">Click <em>Load unpacked</em> and select the folder.</li>
+      <li data-i18n="inst4">Open the popup, press start, choose what to share, press stop to save the clip.</li>
+    </ol>
+    <div class="ziprow">
+      <div class="zname">screenloom.zip</div>
+      <div class="zmeta" data-i18n="zipmeta">Manifest V3 · one permission (storage) · hosting pages http/https</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div><a data-i18n="credit" href="https://www.linkedin.com/in/harleyvasquez/" target="_blank" rel="noreferrer">Built by Harley Vásquez</a></div>
+  <div class="tiny" data-i18n="foot">Chromium MV3 · open source · recordings never leave your machine</div>
+</footer>
+
+<script>
+(function(){
+  var LANGS=['en','es','fr','pt','it','de'];
+  var I18N={
+    en:{heroTitle:'ScreenLoom',heroSub:'A studio recorder that lives in your browser toolbar: record a tab, a window or the whole screen, with a red REC beacon on every page while the tape rolls, and a stopwatch in the popup. Stop saves a clip card with thumbnail, length and format.',cta:'Download the extension (.zip)',feat1T:'REC beacon',feat1B:'While recording, every page shows a small red REC pill — so you always know the tape is rolling, even in a different tab.',feat2T:'Clip cards',feat2B:'Each stop saves a card with a real thumbnail, mime type, date and length. The .webm downloads locally; the card metadata persists.',feat3T:'Local studio',feat3B:'Recording happens inside the popup page via getDisplayMedia + MediaRecorder. Nothing is uploaded anywhere.',installTitle:'Install (load unpacked)',inst1:'Download screenloom.zip and unzip it.',inst2:'Open chrome://extensions, enable Developer mode.',inst3:'Click Load unpacked and select the folder.',inst4:'Open the popup, press start, choose what to share, press stop to save the clip.',zipmeta:'Manifest V3 · one permission (storage) · hosting pages http/https',credit:'Built by Harley Vásquez',foot:'Chromium MV3 · open source · recordings never leave your machine'},
+    es:{heroTitle:'ScreenLoom',heroSub:'Un grabador de estudio que vive en la barra de tu navegador: graba una pestaña, una ventana o toda la pantalla, con un faro REC rojo en cada página mientras corre la cinta y un cronómetro en el popup. Detener guarda una ficha de clip con miniatura, duración y formato.',cta:'Descargar la extensión (.zip)',feat1T:'Faros REC',feat1B:'Mientras grabas, cada página muestra una píldora roja REC — para que siempre sepas que la cinta corre, incluso en otra pestaña.',feat2T:'Fichas de clip',feat2B:'Cada detención guarda una ficha con miniatura real, tipo mime, fecha y duración. El .webm se descarga localmente; los metadatos persisten.',feat3T:'Estudio local',feat3B:'La grabación ocurre dentro del popup vía getDisplayMedia + MediaRecorder. Nada se sube a ningún lado.',installTitle:'Instalación (load unpacked)',inst1:'Descarga screenloom.zip y descomprímelo.',inst2:'Abre chrome://extensions y activa el modo desarrollador.',inst3:'Pulsa Cargar descomprimida y elige la carpeta.',inst4:'Abre el popup, pulsa iniciar, elige qué compartir, pulsa detener para guardar el clip.',zipmeta:'Manifest V3 · un permiso (storage) · páginas alojadas en http/https',credit:'Creado por Harley Vásquez',foot:'Chromium MV3 · código abierto · las grabaciones nunca salen de tu equipo'},
+    fr:{heroTitle:'ScreenLoom',heroSub:'Un enregistreur studio dans la barre de votre navigateur : enregistrez un onglet, une fenêtre ou tout l\u2019écran, avec un témoin REC rouge sur chaque page pendant que la bande tourne et un chronomètre dans le popup. Arrêter sauvegarde une fiche clip avec vignette, durée et format.',cta:'Télécharger l\u2019extension (.zip)',feat1T:'Témoin REC',feat1B:'Pendant l\u2019enregistrement, chaque page affiche une pastille rouge REC — vous savez toujours que la bande tourne, même dans un autre onglet.',feat2T:'Fiches clip',feat2B:'Chaque arrêt enregistre une fiche avec une vraie vignette, le type MIME, la date et la durée. Le .webm se télécharge localement ; les métadonnées persistent.',feat3T:'Studio local',feat3B:'L\u2019enregistrement se fait dans le popup via getDisplayMedia + MediaRecorder. Rien n\u2019est envoyé.',installTitle:'Installation (load unpacked)',inst1:'Téléchargez screenloom.zip et décompressez-le.',inst2:'Ouvrez chrome://extensions et activez le mode développeur.',inst3:'Cliquez sur Charger l\u2019extension non empaquetée et choisissez le dossier.',inst4:'Ouvrez le popup, appuyez sur démarrer, choisissez quoi partager, appuyez sur arrêter pour sauvegarder le clip.',zipmeta:'Manifest V3 · une permission (storage) · pages hébergées en http/https',credit:'Créé par Harley Vásquez',foot:'Chromium MV3 · open source · les enregistrements ne quittent jamais votre machine'},
+    pt:{heroTitle:'ScreenLoom',heroSub:'Um gravador de estúdio que vive na barra do seu navegador: grave uma aba, uma janela ou a tela inteira, com um farol REC vermelho em cada página enquanto a fita corre e um cronômetro no popup. Parar salva uma ficha de clipe com miniatura, duração e formato.',cta:'Baixar a extensão (.zip)',feat1T:'Farol REC',feat1B:'Durante a gravação, cada página mostra uma pílula vermelha REC — você sempre sabe que a fita corre, mesmo em outra aba.',feat2T:'Fichas de clipe',feat2B:'Cada parada salva uma ficha com miniatura real, tipo mime, data e duração. O .webm é baixado localmente; os metadados persistem.',feat3T:'Estúdio local',feat3B:'A gravação acontece dentro do popup via getDisplayMedia + MediaRecorder. Nada é enviado para lugar algum.',installTitle:'Instalação (load unpacked)',inst1:'Baixe screenloom.zip e descompacte.',inst2:'Abra chrome://extensions e ative o modo desenvolvedor.',inst3:'Clique em Carregar sem compactação e escolha a pasta.',inst4:'Abra o popup, pressione iniciar, escolha o que compartilhar, pressione parar para salvar o clipe.',zipmeta:'Manifest V3 · uma permissão (storage) · páginas hospedadas em http/https',credit:'Criado por Harley Vásquez',foot:'Chromium MV3 · código aberto · as gravações nunca saem do seu computador'},
+    it:{heroTitle:'ScreenLoom',heroSub:'Un registratore studio che vive nella barra del tuo browser: registra una scheda, una finestra o l\u2019intero schermo, con un faro REC rosso su ogni pagina mentre il nastro gira e un cronometro nel popup. Interrompere salva una scheda clip con miniatura, durata e formato.',cta:'Scarica l\u2019estensione (.zip)',feat1T:'Faro REC',feat1B:'Durante la registrazione, ogni pagina mostra una pillola rossa REC — sai sempre che il nastro gira, anche in un\u2019altra scheda.',feat2T:'Schede clip',feat2B:'Ogni stop salva una scheda con miniatura reale, tipo MIME, data e durata. Il .webm scarica in locale; i metadati restano.',feat3T:'Studio locale',feat3B:'La registrazione avviene nel popup tramite getDisplayMedia + MediaRecorder. Non viene caricato nulla.',installTitle:'Installazione (load unpacked)',inst1:'Scarica screenloom.zip ed estrailo.',inst2:'Apri chrome://extensions e attiva la modalità sviluppatore.',inst3:'Clicca Carica estensione non pacchettizzata e scegli la cartella.',inst4:'Apri il popup, premi avvia, scegli cosa condividere, premi stop per salvare il clip.',zipmeta:'Manifest V3 · un permesso (storage) · pagine ospitate su http/https',credit:'Creato da Harley Vásquez',foot:'Chromium MV3 · open source · le registrazioni non lasciano mai il tuo computer'},
+    de:{heroTitle:'ScreenLoom',heroSub:'Ein Studio-Recorder, der in der Symbolleiste deines Browsers lebt: nimm einen Tab, ein Fenster oder den ganzen Bildschirm auf — mit rotem REC-Signal auf jeder Seite, während das Band läuft, und Stoppuhr im Popup. Stoppen speichert eine Clip-Karte mit Vorschau, Dauer und Format.',cta:'Erweiterung herunterladen (.zip)',feat1T:'REC-Signal',feat1B:'Während der Aufnahme zeigt jede Seite eine kleine rote REC-Pille — du weißt immer, dass das Band läuft, auch in einem anderen Tab.',feat2T:'Clip-Karten',feat2B:'Jeder Stopp speichert eine Karte mit echter Vorschau, MIME-Typ, Datum und Länge. Das .webm lädt lokal herunter; die Metadaten bleiben.',feat3T:'Lokales Studio',feat3B:'Die Aufnahme läuft im Popup über getDisplayMedia + MediaRecorder. Es wird nichts hochgeladen.',installTitle:'Installation (load unpacked)',inst1:'Lade screenloom.zip herunter und entpacke es.',inst2:'Öffne chrome://extensions und aktiviere den Entwicklermodus.',inst3:'Klicke Entpackte Erweiterung laden und wähle den Ordner.',inst4:'Öffne das Popup, drücke starten, wähle, was du teilst, und drücke stoppen, um den Clip zu speichern.',zipmeta:'Manifest V3 · eine Berechtigung (storage) · Seiten gehostet auf http/https',credit:'Erstellt von Harley Vásquez',foot:'Chromium MV3 · Open Source · Aufnahmen verlassen deinen Rechner nie'}
+  };
+  var LS='sl:landingLang';
+  var sel=document.getElementById('langSel');
+  function detect(){ var n=(navigator.language||'en').toLowerCase().split('-')[0]; return LANGS.indexOf(n)>=0?n:'en'; }
+  function apply(lang){
+    document.documentElement.lang=lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k=el.getAttribute('data-i18n');
+      if(I18N[lang][k]!==undefined) el.textContent=I18N[lang][k];
+    });
+    document.title=I18N[lang].heroTitle+' — '+I18N[lang].heroSub;
+  }
+  var lang=localStorage.getItem(LS); if(LANGS.indexOf(lang)<0) lang=detect();
+  sel.value=lang; apply(lang);
+  sel.addEventListener('change',function(){ localStorage.setItem(LS,sel.value); apply(sel.value); });
+})();
+</script>
+</body>
+</html>
